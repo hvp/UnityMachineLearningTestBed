@@ -1,0 +1,8 @@
+*.csproj
+*.sln
+MachingLearning/Temp/
+MachingLearning/Library/
+MachingLearning/Builds/
+MachingLearning/MachingLearning.userprefs
+MachingLearning/vs/
+MachingLearning/obj/
