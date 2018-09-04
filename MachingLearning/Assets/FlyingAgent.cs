@@ -73,7 +73,8 @@ public class FlyingAgent : Agent
         // rewards
         float distanceToTarget = Vector3.Distance(transform.position, Target.position);
         float directionToTarget = Vector3.Dot(transform.forward, (Target.position - transform.position).normalized);
-       
+
+       // print(directionToTarget);
 
         // time pentaly;
         AddReward(-0.05f);
@@ -95,7 +96,7 @@ public class FlyingAgent : Agent
 
         if(directionToTarget > previousDirection)
         {
-            AddReward(0.1f);
+            AddReward(0.5f);
         }
 
         previousDirection = directionToTarget;
@@ -141,7 +142,7 @@ public class FlyingAgent : Agent
         Ray ray = new Ray(transform.position, transform.forward);
         Debug.DrawRay(ray.origin, ray.direction * 10, Color.green, 0.1f);
         Linerenderer.SetPosition(0, ray.origin);
-        Linerenderer.SetPosition(1, ray.direction * 10);
+        Linerenderer.SetPosition(1, transform.position + ray.direction * 10);
         RaycastHit raycastHit;
 
         if (Physics.Raycast(ray, out raycastHit, 10, ProjectileLayerMask))
